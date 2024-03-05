@@ -11,10 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "peopleServlet", value = "/")
+@WebServlet(name = "peopleServlet", value = "/people")
 public class PeopleServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Person> people = PersonDB.select();
+        System.out.println("people:");
+        System.out.println(people);
         request.setAttribute("people", people);
         getServletContext().getRequestDispatcher("/people.jsp").forward(request, response);
     }

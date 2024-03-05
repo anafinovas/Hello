@@ -29,7 +29,7 @@ public class AddServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath()+"/");
         }
         catch(Exception ex) {
-            getServletContext().getRequestDispatcher("/create.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/add.jsp").forward(request, response);
         }
     }
 }
