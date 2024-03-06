@@ -5,7 +5,7 @@
 </head>
 <body>
 <h2>People List</h2>
-<p><a href='<c:url value="/add" />'>Create new</a></p>
+<p><a href='<c:url value="/people/add" />'>Create new</a></p>
 <table border="1px solid black">
     <tr><th>ID</th><th>Name</th><th>Surname</th><th>Age</th><th></th></tr>
     <c:forEach var="person" items="${people}">
@@ -15,8 +15,8 @@
             <td>${person.surname}</td>
             <td>${person.age}</td>
             <td>
-                <a href='<c:url value="/edit?id=${person.id}" />'>Edit</a> |
-                <form method="post" action='<c:url value="/delete" />' style="display:inline;">
+                <a href='<c:url value="/people/edit?id=${person.id}" />'>Edit</a> |
+                <form method="post" action='<c:url value="/people/delete" />' style="display:inline;">
                     <input type="hidden" name="id" value="${person.id}">
                     <input type="submit" value="Delete">
                 </form>
