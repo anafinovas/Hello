@@ -118,9 +118,4 @@ public class PersonDB {
         }
         return 0;
     }
-
-    public static void main(String[] args) {
-        Person person = new Person(1, "alex", "snow", 30);
-        update(person);
-    }
 }

@@ -1,16 +1,10 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: USER
-  Date: 05.03.2024
-  Time: 15:45
-  To change this template use File | Settings | File Templates.
---%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Hello</title>
+    <title>Hello java!</title>
 </head>
 <body>
-Hello
+<a href='<c:url value="/people" />'>Go to people</a>
 </body>
 </html>

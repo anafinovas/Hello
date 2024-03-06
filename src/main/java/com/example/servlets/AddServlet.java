@@ -26,7 +26,7 @@ public class AddServlet extends HttpServlet {
             int age = Integer.parseInt(request.getParameter("age"));
             Person person = new Person(name, surname, age);
             PersonDB.add(person);
-            response.sendRedirect(request.getContextPath()+"/");
+            response.sendRedirect(request.getContextPath()+"/people");
         }
         catch(Exception ex) {
             getServletContext().getRequestDispatcher("/add.jsp").forward(request, response);

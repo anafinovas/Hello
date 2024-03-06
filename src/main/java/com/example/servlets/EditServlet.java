@@ -41,7 +41,7 @@ public class EditServlet extends HttpServlet {
             int age = Integer.parseInt(request.getParameter("age"));
             Person person = new Person(id, name, surname, age);
             PersonDB.update(person);
-            response.sendRedirect(request.getContextPath() + "/");
+            response.sendRedirect(request.getContextPath() + "/people");
         }
         catch(Exception ex) {
             getServletContext().getRequestDispatcher("/notfound.jsp").forward(request, response);
