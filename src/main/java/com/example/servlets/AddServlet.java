@@ -13,23 +13,17 @@ import java.io.IOException;
 public class AddServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         getServletContext().getRequestDispatcher("/add.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String name = request.getParameter("name");
+        String surname = request.getParameter("surname");
+        int age = Integer.parseInt(request.getParameter("age"));
+        Person person = new Person(name, surname, age);
+        PersonDB.add(person);
+        response.sendRedirect(request.getContextPath()+"/people");
 
-        try {
-            String name = request.getParameter("name");
-            String surname = request.getParameter("surname");
-            int age = Integer.parseInt(request.getParameter("age"));
-            Person person = new Person(name, surname, age);
-            PersonDB.add(person);
-            response.sendRedirect(request.getContextPath()+"/people");
-        }
-        catch(Exception ex) {
-            getServletContext().getRequestDispatcher("/add.jsp").forward(request, response);
-        }
     }
 }

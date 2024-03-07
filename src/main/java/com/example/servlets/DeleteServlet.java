@@ -13,14 +13,8 @@ import java.io.IOException;
 public class DeleteServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        try {
-            int id = Integer.parseInt(request.getParameter("id"));
-            PersonDB.delete(id);
-            response.sendRedirect(request.getContextPath() + "/people");
-        }
-        catch(Exception ex) {
-            getServletContext().getRequestDispatcher("/notfound.jsp").forward(request, response);
-        }
+        int id = Integer.parseInt(request.getParameter("id"));
+        PersonDB.delete(id);
+        response.sendRedirect(request.getContextPath() + "/people");
     }
 }

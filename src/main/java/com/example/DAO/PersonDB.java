@@ -59,7 +59,7 @@ public class PersonDB {
         }
         return person;
     }
-    public static int add(Person person) {
+    /*public static int add(Person person) {
 
         try{
             Class.forName("org.postgresql.Driver");
@@ -70,6 +70,25 @@ public class PersonDB {
                     preparedStatement.setString(2, person.getSurname());
                     preparedStatement.setInt(3, person.getAge());
                     return  preparedStatement.executeUpdate();
+                }
+            }
+        }
+        catch(Exception ex){
+            System.out.println(ex);
+        }
+        return 0;
+    }*/
+    public static int add(Person person) {
+
+        try{
+            Class.forName("org.postgresql.Driver");
+            try (Connection conn = DriverManager.getConnection(url, username, password)){
+                String sql = "INSERT INTO person (name, surname, age) Values (?, ?, ?)";
+                try(CallableStatement callableStatement = conn.prepareCall("call insert_person(?, ?, ?)")){
+                    callableStatement.setString(1, person.getName());
+                    callableStatement.setString(2, person.getSurname());
+                    callableStatement.setInt(3, person.getAge());
+                    return  callableStatement.executeUpdate();
                 }
             }
         }
