@@ -23,7 +23,7 @@ public class EditServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
         String surname = request.getParameter("surname");
